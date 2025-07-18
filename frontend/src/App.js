@@ -27,7 +27,7 @@ function App() {
     ];
 
     try {
-      const res = await axios.post('http://127.0.0.1:5000/predict', { input: data });
+      const res = await axios.post('https://diabetes-prediction-model-e88u.onrender.com/predict', { input: data });
       setResult(res.data.prediction);
     } catch (err) {
       console.error(err);
