@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn import svm
-import joblib
+import joblib,os
 from flask_cors import CORS
 
 # Load dataset
@@ -49,4 +49,5 @@ def predict():
     return jsonify({'prediction': result})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+     port = int(os.environ.get('PORT', 5000))
+     app.run(host='0.0.0.0', port=port)
